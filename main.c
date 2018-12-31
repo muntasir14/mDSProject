@@ -2,8 +2,8 @@
 //  main.c
 //  mishtiiDS
 //
-//  Created by IKRAMUZZAMAN MUNTASIR on 31/12/18.
-//  Copyright © 2018 IKRAMUZZAMAN MUNTASIR. All rights reserved.
+//  Created by "" on 31/12/18.
+//  Copyright © 2018. All rights reserved.
 //
 
 #include <stdio.h>
