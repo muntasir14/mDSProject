@@ -92,13 +92,58 @@ void addFriend(node *user1, node *user2){
     
 }
 
+int countFriends(node *user){
+    
+    int count = 0;
+    
+    for(node *temp = user->nextFriend; temp != NULL; temp = temp->nextFriend)
+        count++;
+    
+    return count;
+}
+
+node* mostFriends(){
+    
+    node *maxFriendUser = users->next;
+    int max = 0;
+    
+    for(node *temp = users->next; temp != NULL; temp = temp->next){
+        
+        int numberOfFriends = countFriends(temp);
+        if(numberOfFriends > max){
+            
+            max = numberOfFriends;
+            maxFriendUser = temp;
+        }
+    }
+    
+    return maxFriendUser;
+}
+
+int totalUsers(){
+    
+    int count = 0;
+    for(node *temp = users->next; temp != NULL; temp = temp->next)
+        count++;
+    
+    return count;
+}
+
+node* getUsers(){
+    
+    return users;
+}
 
 void showOptions(){
     
     printf("Enter 1 to see all users\n");
     printf("Enter 2 to see add a user\n");
     printf("Enter 3 to see add friends\n");
+    printf("Enter 4 to see total users\n");
+    printf("Enter 5 to see user who has maximum friends\n");
 }
+
+
 
 void controlPanel(){
     
@@ -151,6 +196,13 @@ void controlPanel(){
                 addFriend(temp1, temp2);
                 //free(temp1);
                 //free(temp2);
+                break;
+            case 4:
+                printf("\n\nTotal Users: %d\n\n", totalUsers());
+                break;
+            case 5:
+                printf("\n\nName: %s\n\n", mostFriends()->name);
+                break;
             default:
                 printf("Invalid Option!\n");
                 break;
